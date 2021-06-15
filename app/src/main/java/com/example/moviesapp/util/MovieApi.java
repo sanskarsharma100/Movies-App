@@ -32,14 +32,12 @@ public interface MovieApi {
             @Query("api_key") String apiKey
     );
 
-    //movie/791373/reviews?api_key=41e51cbf0e10b0fa778b49e1f9e24aa1
     @GET("movie/{movie_id}/reviews")
     Call<ReviewResponse> getReviews(
             @Path("movie_id") String movie_id,
             @Query("api_key") String apiKey
     );
 
-    //https://api.themoviedb.org/3/search/movie
     @GET("search/movie")
     Call<MovieResponse> getSearchedMovies(
             @Query("api_key") String apiKey,
