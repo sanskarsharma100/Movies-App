@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void setupUI() {
+        getSupportActionBar().setTitle("Home");
         mainBinding.noFavouritesFound.setVisibility(View.INVISIBLE);
         mainBinding.noInternetView.setVisibility(View.INVISIBLE);
         mainBinding.moviesRecyclerView.setAdapter(moviePagedListAdapter);
@@ -162,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void loadFavMovies() {
+        getSupportActionBar().setTitle("Favourites");
         movieViewModel.getFavMovies().observe(this, new Observer<List<MovieEntry>>() {
             @Override
             public void onChanged(List<MovieEntry> movieEntries) {
