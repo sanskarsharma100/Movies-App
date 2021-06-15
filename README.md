@@ -9,6 +9,7 @@ App reads the data from TMDB. The Movies App provides information about the vari
 <img src="https://user-images.githubusercontent.com/56783054/122048427-dbec0f00-cdfe-11eb-8e32-6924ff5c6900.png" alt="Details" width="400" height="600"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://user-images.githubusercontent.com/56783054/122048431-dd1d3c00-cdfe-11eb-9612-c83ac958ef85.png" alt="Trailers" width="400" height="600"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://user-images.githubusercontent.com/56783054/122048434-ddb5d280-cdfe-11eb-9ab3-cf0c39dbbec1.png" alt="Favourites" width="400" height="600">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ### Libraries
 - [Retrofit](https://square.github.io/retrofit/)
