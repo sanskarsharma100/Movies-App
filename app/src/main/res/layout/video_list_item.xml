@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/blue"
+        app:contentPadding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/thumbnail_image"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:contentDescription="@string/trailer_thumbnail"
+                android:scaleType="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/video_play_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/play_button"
+                app:layout_constraintBottom_toBottomOf="@+id/thumbnail_image"
+                app:layout_constraintEnd_toEndOf="@+id/thumbnail_image"
+                app:layout_constraintStart_toStartOf="@+id/thumbnail_image"
+                app:layout_constraintTop_toTopOf="@+id/thumbnail_image"
+                app:srcCompat="@drawable/video_play_button" />
+
+            <TextView
+                android:id="@+id/video_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="@+id/thumbnail_image"
+                app:layout_constraintStart_toStartOf="@+id/thumbnail_image"
+                app:layout_constraintTop_toBottomOf="@+id/thumbnail_image"
+                tools:text="@string/movie_trailer" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>

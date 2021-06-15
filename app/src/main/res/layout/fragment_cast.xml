@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".detailactivity.tabfragments.CastFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_blue">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cast_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/cast_not_available"
+            style="@style/no_connection"
+            android:text="@string/cast_not_found"
+            app:drawableTopCompat="@drawable/ic_cast_not_found" />
+
+        <TextView
+            android:id="@+id/no_internet_view"
+            style="@style/no_connection"
+            android:text="@string/msg_internet_not_available"
+            app:drawableTopCompat="@drawable/ic_no_internet" />
+
+    </FrameLayout>
+
+</layout>
