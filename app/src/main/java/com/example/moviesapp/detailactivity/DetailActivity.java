@@ -84,13 +84,13 @@ public class DetailActivity extends AppCompatActivity implements InformationFrag
         Glide.with(this)
                 .load(movieModel.getMovieHztImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.mipmap.movie_image_not_found)
+                .error(R.drawable.movie_image_not_found)
                 .into(mDetailBinding.detailMovieBackImage);
 
         Glide.with(this)
                 .load(movieModel.getMovieImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .placeholder(R.mipmap.movie_image_not_found)
+                .error(R.drawable.movie_image_not_found)
                 .into(mDetailBinding.detailMovieMainImage);
 
         mDetailBinding.detailMovieName.setText(movieModel.getMovieName());

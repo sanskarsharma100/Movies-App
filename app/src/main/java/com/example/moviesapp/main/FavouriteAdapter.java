@@ -45,28 +45,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull FavouriteAdapter.FavouriteViewHolder holder, int position) {
-        holder.tilesBinding.mainMovieTilesProgressBar.setVisibility(View.VISIBLE);
-        MovieEntry movieEntry = movieEntries.get(position);
-        holder.tilesBinding.movieName.setText(movieEntry.getTitle());
-        Glide.with(holder.itemView.getContext())
-                .load(movieEntry.getPosterPath())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .error(R.mipmap.movie_image_not_found)
-                .override(200, 300)
-                .listener(new RequestListener<Drawable>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable @org.jetbrains.annotations.Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        holder.tilesBinding.mainMovieTilesProgressBar.setVisibility(View.GONE);
-                        return false; // important to return false so the error placeholder can be placed
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        holder.tilesBinding.mainMovieTilesProgressBar.setVisibility(View.GONE);
-                        return false;
-                    }
-                })
-                .into(holder.tilesBinding.moviePoster);
+        holder.bind(movieEntries.get(position));
     }
 
     @Override
@@ -81,7 +60,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
     }
 
     public interface FavouriteOnClickListener {
-        void FavouriteOnClick(MovieEntry movieEntry);
+        void FavouriteOnClick(MovieEntry movieEntry,MovieTilesBinding movieTilesBinding);
     }
 
     public class FavouriteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -91,11 +70,21 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
             super(movieTilesBinding.getRoot());
             tilesBinding = movieTilesBinding;
             itemView.setOnClickListener(this);
+            movieTilesBinding.moviePoster.setOnClickListener(this);
+        }
+
+        public void bind(MovieEntry movieEntry) {
+            tilesBinding.movieName.setText(movieEntry.getTitle());
+            Glide.with(itemView.getContext())
+                    .load(movieEntry.getPosterPath())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .error(R.drawable.movie_image_not_found)
+                    .into(tilesBinding.moviePoster);
         }
 
         @Override
         public void onClick(View view) {
-            favouriteOnClickListener.FavouriteOnClick(movieEntries.get(getAbsoluteAdapterPosition()));
+            favouriteOnClickListener.FavouriteOnClick(movieEntries.get(getAbsoluteAdapterPosition()),tilesBinding);
         }
     }
 

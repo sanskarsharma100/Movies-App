@@ -7,6 +7,7 @@
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="android:windowContentTransitions">true</item>
         <item name="actionOverflowMenuStyle">@style/CMOptionsMenu</item>
         <item name="android:itemTextAppearance">@style/myCustomMenuTextAppearance</item>
     </style>

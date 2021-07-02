@@ -13,4 +13,6 @@
     <color name="blue">#6A0F1D50</color>
     <color name="gold">#FFC619</color>
     <color name="fab_color">#EA0546</color>
+    <color name="blue_grey_700">#455a64</color>
+    <color name="card_background">#263238</color>
 </resources>

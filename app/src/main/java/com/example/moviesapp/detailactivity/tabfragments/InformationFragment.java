@@ -44,11 +44,8 @@ public class InformationFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         mMovieModel = getMovieModel();
-
         setupMovieDetails(this.getActivity(), mMovieModel.getMovieId());
-
         loadDetails();
 
     }

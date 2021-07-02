@@ -14,39 +14,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="0dp"
-            app:cardElevation="0.7dp"
-            app:cardMaxElevation="1dp"
+            app:cardElevation="1dp"
             app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="0dp">
+            app:cardUseCompatPadding="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/movie_name_background">
+                android:background="@drawable/item_selector_effect">
 
-                <ImageView
+                <com.example.moviesapp.TwoThreeImageView
                     android:id="@+id/movie_poster"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:adjustViewBounds="true"
+                    android:background="@drawable/item_selector_effect"
                     android:contentDescription="@string/movie_poster"
+                    android:transitionName="@string/transition_photo"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/movie_image_not_found"
+                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-
-                <ProgressBar
-                    android:id="@+id/main_movie_tiles_progress_bar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/movie_poster"
-                    app:layout_constraintEnd_toEndOf="@+id/movie_poster"
-                    app:layout_constraintStart_toStartOf="@+id/movie_poster"
-                    app:layout_constraintTop_toTopOf="@+id/movie_poster" />
 
                 <TextView
                     android:id="@+id/movie_name"
@@ -56,13 +44,10 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:padding="4dp"
-                    android:textAlignment="center"
                     android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/movie_poster"
-                    app:layout_constraintVertical_bias="0.0"
                     tools:text="@string/movie_name" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

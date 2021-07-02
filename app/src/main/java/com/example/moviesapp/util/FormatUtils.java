@@ -40,7 +40,7 @@ public class FormatUtils {
         Date date = null;
         try {
             date = dateFormat.parse(inputDate);
-        } catch (ParseException e) {
+        } catch (ParseException | NullPointerException e) {
             e.printStackTrace();
         }
         if (date == null) {

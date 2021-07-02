@@ -9,7 +9,7 @@ public final class Constant {
     public static final String[] TAB_LIST = {"Info", "Cast", "Trailer", "Reviews"};
     public static final int TAB_LIST_SIZE = TAB_LIST.length;
     public static final String DIRECTOR_NOT_FOUND = "NA";
-    public static String API_KEY = "MOVIE_API_KEY";
+    public static String API_KEY = "41e51cbf0e10b0fa778b49e1f9e24aa1";
     public static String MOVIE_BASE_URL = "https://api.themoviedb.org/3/";
     public static String MOVIE_POSTER_URL = "http://image.tmdb.org/t/p/w500";
     public static String MOVIE_SHARING_URL = "https://www.themoviedb.org/movie/";

@@ -4,6 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_blue</item>
         <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="android:windowContentTransitions">true</item>
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>

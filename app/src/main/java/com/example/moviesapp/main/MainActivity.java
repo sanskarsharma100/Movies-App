@@ -1,6 +1,8 @@
 package com.example.moviesapp.main;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +29,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.example.moviesapp.R;
 import com.example.moviesapp.data.MovieEntry;
 import com.example.moviesapp.databinding.ActivityMainBinding;
+import com.example.moviesapp.databinding.MovieTilesBinding;
 import com.example.moviesapp.detailactivity.DetailActivity;
 import com.example.moviesapp.models.MovieModel;
 import com.example.moviesapp.repository.MovieRepository;
@@ -85,10 +88,12 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onClick(View v, MovieModel movieModel) {
+    public void onClick(MovieModel movieModel,MovieTilesBinding tilesBinding) {
         Intent intent = new Intent(MainActivity.this, DetailActivity.class);
         intent.putExtra(Constant.MOVIE_EXTRA, movieModel);
-        startActivity(intent);
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(
+                this,(View)tilesBinding.moviePoster,tilesBinding.moviePoster.getTransitionName()).toBundle();
+        startActivity(intent,bundle);
     }
 
     private void loadMovieData() {
@@ -145,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.action_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                 return true;
 
             case R.id.action_favourites:
@@ -193,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void FavouriteOnClick(MovieEntry movieEntry) {
+    public void FavouriteOnClick(MovieEntry movieEntry,MovieTilesBinding tilesBinding) {
         int movieId = movieEntry.getMovieId();
         String originalTitle = movieEntry.getOriginalTitle();
         String movieName = movieEntry.getTitle();
@@ -207,8 +213,10 @@ public class MainActivity extends AppCompatActivity implements
         MovieModel movieModel = new MovieModel(movieName, originalTitle, posterPath, overView, releaseDate, backDropPath
                 , String.valueOf(voteAvg), String.valueOf(movieId), voteCount);
         Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-        intent.putExtra(Constant.MOVIE_EXTRA, movieModel);
-        startActivity(intent);
+        intent.putExtra(Constant.MOVIE_EXTRA,movieModel);
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(
+                this,(View)tilesBinding.moviePoster,tilesBinding.moviePoster.getTransitionName()).toBundle();
+        startActivity(intent,bundle);
     }
 
 }

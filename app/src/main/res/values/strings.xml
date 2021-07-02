@@ -33,6 +33,7 @@
 
     <string name="voter_image">Voter Image</string>
     <string name="movie_poster">Movie Poster</string>
+    <string name="transition_photo">transition_photo</string>
 
     <string name="review_author">Author:\u0020</string>
     <string name="review_author_name">Author Name</string>
