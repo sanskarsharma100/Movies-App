@@ -63,11 +63,11 @@ public class DetailActivity extends AppCompatActivity implements InformationFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
-
         if (getIntent().hasExtra(Constant.MOVIE_EXTRA)) {
             movieModel = getIntent().getParcelableExtra(Constant.MOVIE_EXTRA);
             mMovieId = (String) movieModel.getMovieId();
         }
+        setOnFavouriteClickListener();
         mDb = MovieDatabase.getInstance(getApplicationContext());
         mIsInFavourites = isInFavourites();
         mDetailBinding.tabLayout.setupWithViewPager(mDetailBinding.viewPagerDetails.detailViewpager);
@@ -163,27 +163,31 @@ public class DetailActivity extends AppCompatActivity implements InformationFrag
         });
     }
 
-    public void onFavouriteClick(View view) {
-        movieEntry = getMovieEntry();
-        if (!mIsInFavourites) {
-            AppExecutors.getsInstance().diskIO().execute(new Runnable() {
-                @Override
-                public void run() {
-                    mDb.movieDao().insertMovie(movieEntry);
+    public void setOnFavouriteClickListener() {
+        mDetailBinding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                movieEntry = getMovieEntry();
+                if (!mIsInFavourites) {
+                    AppExecutors.getsInstance().diskIO().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            mDb.movieDao().insertMovie(movieEntry);
+                        }
+                    });
+                    Toast.makeText(getApplicationContext(), "Movie Added to Favourites", Toast.LENGTH_SHORT).show();
+                } else {
+                    movieEntry = favouriteViewModel.getMovieEntry().getValue();
+                    AppExecutors.getsInstance().diskIO().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            mDb.movieDao().deleteMovie(movieEntry);
+                        }
+                    });
+                    Toast.makeText(getApplicationContext(), "Movie removed from Favourites", Toast.LENGTH_SHORT).show();
                 }
-            });
-            Toast.makeText(getApplicationContext(), "Movie Added to Favourites", Toast.LENGTH_SHORT).show();
-        } else {
-            movieEntry = favouriteViewModel.getMovieEntry().getValue();
-            AppExecutors.getsInstance().diskIO().execute(new Runnable() {
-                @Override
-                public void run() {
-                    mDb.movieDao().deleteMovie(movieEntry);
-                }
-            });
-            Toast.makeText(getApplicationContext(), "Movie removed from Favourites", Toast.LENGTH_SHORT).show();
-        }
-
+            }
+        });
     }
 
     private MovieEntry getMovieEntry() {

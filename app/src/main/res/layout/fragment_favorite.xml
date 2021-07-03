@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".main.FavoriteFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_blue">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movies_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/no_internet_view"
+            style="@style/no_connection"
+            android:text="@string/msg_internet_not_available"
+            app:drawableTopCompat="@drawable/ic_no_internet" />
+
+        <TextView
+            android:id="@+id/no_favourites_found"
+            style="@style/no_connection"
+            android:text="@string/no_favourites_found"
+            app:drawableTopCompat="@drawable/favorite_filled" />
+
+    </FrameLayout>
+</layout>

@@ -87,4 +87,6 @@
 
     <string name="msg_internet_not_available">Could not connect to internet. \nMake sure you have an active internet connection</string>
     <string name="no_favourites_found">No favourite movies found</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Favorite</string>
 </resources>

@@ -9,16 +9,4 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_favourites"
-        android:orderInCategory="0"
-        android:title="@string/action_favourites"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_home"
-        android:orderInCategory="0"
-        android:title="@string/action_home"
-        app:showAsAction="never" />
-
 </menu>
