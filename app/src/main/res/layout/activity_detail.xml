@@ -19,15 +19,16 @@
                 android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:elevation="24dp"
                 android:fitsSystemWindows="true"
                 app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-                app:contentScrim="@color/background_blue"
+                app:contentScrim="@color/grey_light"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/background_blue">
+                    android:background="@color/grey_900">
 
                     <ImageView
                         android:id="@+id/detail_movie_back_image"
@@ -102,7 +103,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="15dp"
-                        android:backgroundTint="@color/fab_color"
+                        app:backgroundTint="@color/fab_color"
                         android:contentDescription="@string/add_favourite_button"
                         app:layout_constraintBottom_toBottomOf="@+id/detail_movie_back_image"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -115,6 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?android:attr/actionBarSize"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:elevation="24dp"
                     app:layout_collapseMode="pin" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -123,7 +125,9 @@
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/background_blue"
+                android:elevation="12dp"
+                android:background="@color/grey_900"
+                app:tabIndicatorColor="@color/purple_200"
                 app:tabMode="scrollable" />
 
         </com.google.android.material.appbar.AppBarLayout>

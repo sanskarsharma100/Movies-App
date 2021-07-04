@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListPreference
+    <!--    <ListPreference-->
+    <!--        android:defaultValue="popular"-->
+    <!--        android:entries="@array/pref_sort_by_options"-->
+    <!--        android:entryValues="@array/pref_sort_by_values"-->
+    <!--        android:key="@string/pref_sort_by_title_value"-->
+    <!--        android:title="@string/pref_sort_by_title" />-->
+
+    <com.example.moviesapp.CustomListPreference
         android:defaultValue="popular"
         android:entries="@array/pref_sort_by_options"
         android:entryValues="@array/pref_sort_by_values"

@@ -7,7 +7,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_blue">
+        android:background="@color/grey_900">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cast_recycler_view"

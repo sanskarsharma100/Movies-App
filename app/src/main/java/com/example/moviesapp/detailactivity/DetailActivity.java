@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.transition.ChangeBounds;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -77,6 +78,7 @@ public class DetailActivity extends AppCompatActivity implements InformationFrag
         mDetailBinding.viewPagerDetails.detailViewpager.setAdapter(pagerAdapter);
         setCollapsingToolbarTitle();
         loadMovieDetails();
+        getWindow().setSharedElementEnterTransition(new ChangeBounds().setDuration(300));
     }
 
     private void loadMovieDetails() {

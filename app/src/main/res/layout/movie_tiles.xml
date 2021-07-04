@@ -13,22 +13,23 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardElevation="1dp"
+            android:translationZ="12dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/item_selector_effect">
+                android:background="@color/grey_light"
+                android:foreground="@drawable/item_selector">
 
                 <com.example.moviesapp.TwoThreeImageView
                     android:id="@+id/movie_poster"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:adjustViewBounds="true"
-                    android:background="@drawable/item_selector_effect"
+                    android:background="@color/grey_light"
+                    android:foreground="@drawable/item_selector"
                     android:contentDescription="@string/movie_poster"
                     android:transitionName="@string/transition_photo"
                     android:scaleType="centerCrop"
@@ -42,10 +43,12 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/movie_poster"
                     android:ellipsize="end"
+                    android:gravity="center"
                     android:maxLines="2"
                     android:padding="4dp"
                     android:textColor="@color/white"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/movie_poster"
                     tools:text="@string/movie_name" />
